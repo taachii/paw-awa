@@ -3,4 +3,4 @@
 
 ### Ćwiczenia:
 
-1. [Uniwersalne ziarna CDI]()
+1. [Uniwersalne ziarna CDI](https://github.com/taachii/paw-awa/tree/main/01_credit)
