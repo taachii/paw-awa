@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Kalkulator kredytowy</title>
+</h:head>
+<h:body>
+	<p:panel header="Kalkulator kredytowy" style="width:50vw; margin: 2em auto;" toggleable="true" toggleSpeed="300">
+		<h:form id="bla">
+			<h:panelGrid id="grid" columns="3" cellpadding="5">
+				<p:outputLabel for="amount" value="Podaj kwotę [zł]: "/>
+				<p:inputText id="amount" value="#{creditBB.amount}" required="true" requiredMessage="Brak kwoty!"/>
+				<p:message id="amount-msg" for="amount"/>
+				
+				<p:outputLabel for="years" value="Podaj liczbę lat kredytowania: "/>
+				<p:inputText id="years" value="#{creditBB.years}" required="true" requiredMessage="Brak liczby lat!"/>
+				<p:message id="years-msg" for="years"/>
+				
+				<p:outputLabel for="rate" value="Podaj oprocentowanie [%]: "/>
+				<p:inputText id="rate" value="#{creditBB.interestRate}" required="true" requiredMessage="Brak oprocentowania!"/>
+				<p:message id="rate-msg" for="rate"/>
+				
+				<p:commandButton value="Oblicz" action="#{creditBB.calc()}" update="@form"/>
+				<p:commandButton value="Oblicz (AJAX)" action="#{creditBB.calc_AJAX()}" update="msg, amount-msg, years-msg, rate-msg"/>
+			</h:panelGrid>
+	  		 
+			<p:messages id="msg" closable="true"/>
+		</h:form>
+	</p:panel>
+</h:body>
+</html>
