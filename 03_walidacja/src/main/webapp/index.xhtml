@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Kalkulator kredytowy</title>
+</h:head>
+<h:body>
+	<p:panel header="Kalkulator kredytowy" style="width:50vw; margin: 2em auto;" toggleable="true" toggleSpeed="300">
+		<h:form id="bla">
+		
+			<h:panelGrid id="grid" columns="3" cellpadding="5">
+			
+				<p:outputLabel for="amount" value="Podaj kwotę [zł]: "/>
+				<p:inputText value="#{creditBB.amount}" 
+				    id="amount" 
+				    required="true" 
+				    requiredMessage="Nie podano kwoty."
+				    converterMessage="Kwota musi być liczbą całkowitą."
+				    validatorMessage="Kwota kredytu nie może być niższa niż 10 000zł.">
+				  <f:validateLongRange minimum="10000" />
+				</p:inputText>
+				<p:message for="amount"/>
+				
+				<p:outputLabel for="years" value="Podaj liczbę lat kredytowania: "/>
+				<p:inputText value="#{creditBB.years}" 
+            id="years" 
+            required="true" 
+            requiredMessage="Nie podano liczby lat kredytowania."
+            converterMessage="Liczba lat musi być liczbą całkowitą."
+            validatorMessage="Minimalny okres kredytowania wynosi 5 lat.">
+          <f:validateLongRange minimum="5" />
+        </p:inputText>
+				<p:message for="years"/>
+				
+				<p:outputLabel for="rate" value="Podaj oprocentowanie [%]: "/>
+				<p:inputText value="#{creditBB.interestRate}" 
+            id="rate" 
+            required="true" 
+            requiredMessage="Nie podano oprocentowania."
+            converterMessage="Oprocentowanie musi być liczbą."
+            validatorMessage="Oprocentowanie powinno mieścić się w zakresie 5-20%">
+          <f:validateDoubleRange minimum="5" maximum="20" />
+        </p:inputText>
+				<p:message for="rate"/>
+				
+				<p:commandButton value="Oblicz" action="#{creditBB.calc()}" update="@form"/>
+				<p:commandButton value="Oblicz (AJAX)" action="#{creditBB.calc_AJAX()}" update="@form"/>
+				
+			</h:panelGrid>
+				  		 
+			<p:messages id="msg" closable="true"/>
+		</h:form>
+	</p:panel>
+</h:body>
+</html>
