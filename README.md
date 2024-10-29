@@ -4,4 +4,5 @@
 ### Ćwiczenia:
 
 1. [Uniwersalne ziarna CDI](https://github.com/taachii/paw-awa/tree/main/01_credit)
-2. [Primefaces](https://github.com/taachii/paw-awa/tree/main/02_primefaces) 
+2. [Primefaces](https://github.com/taachii/paw-awa/tree/main/02_primefaces)
+3. [Konwersja i walidacja](https://github.com/taachii/paw-awa/tree/main/03_walidacja)
