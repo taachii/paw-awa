@@ -1,0 +1,13 @@
+.prime_panel {
+	width: 50vw;
+	margin: auto;
+}
+
+.prime_panel h1,
+.prime_panel p {
+	text-align: center;
+}
+
+.container {
+	margin-top: 5em;
+}
